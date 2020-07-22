@@ -27,15 +27,26 @@
 """
 # Streamlit dependencies
 import streamlit as st
+import streamlit.components.v1 as components
+from streamlit_pandas_profiling import st_profile_report
+import sweetviz as sv
 
 # Data handling dependencies
 import pandas as pd
-import numpy as np
+import numpy as np 
+import codecs
+from pandas_profiling import ProfileReport 
 
 # Custom Libraries
 from utils.data_loader import load_movie_titles
 from recommenders.collaborative_based import collab_model
 from recommenders.content_based import content_model
+
+
+def st_display_sweetviz(report_html,width=1000,height=500):
+	report_file = codecs.open(report_html,'r')
+	page = report_file.read()
+	components.html(page,width=width,height=height,scrolling=True)
 
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
@@ -45,7 +56,7 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System","Solution Overview"]
+    page_options = ["Recommender System","pandas profiling", "sweetviz", "custom eda", "Solution Overview"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -97,14 +108,71 @@ def main():
                               We'll need to fix it!")
 
 
-    # -------------------------------------------------------------------
+    # -----------------------------------------------------------------------#
+    #                       SAFE FOR ALTERING/EXTENSION                      #
+    #------------------------------------------------------------------------#
+    #                           pandas profiling                             #
+    #------------------------------------------------------------------------#
+    if page_selection == "pandas profiling":
+        st.title("pandas profiling")
+        ds = st.radio("choose the data sorce", ("upload data", "use internal data"))
+        if ds == "upload data":
+            data_file = st.file_uploader("Upload CSV",type=['csv'])
+        else:
+            data_file = "resources/data/ratings.csv"
+        if data_file is not None:
+            df = pd.read_csv(data_file)
+            st.dataframe(df.head())
+            profile = ProfileReport(df)
+            st_profile_report(profile)
+        pass
+    
+    #------------------------------------------------------------------------#
+    #                           Sweetviz report                              #
+    #------------------------------------------------------------------------#
+    if page_selection == "sweetviz":
+        st.title("sweetviz")
+        ds = st.radio("choose the data sorce", ("upload data", "use internal data"))
+        if ds == "upload data":
+            data_file = st.file_uploader("Upload CSV",type=['csv'])
+        else:
+            data_file = "resources/data/ratings.csv"
+        if data_file is not None:
+            df1 = pd.read_csv(data_file)
+            st.dataframe(df1.head())
+            if st.button("Genwrate Sweetviz Report"):
+                report = sv.analyze(df1)
+                report.show_html()
+                st_display_sweetviz("SWEETVIZ_REPORT.html")
+        pass
 
-    # ------------- SAFE FOR ALTERING/EXTENSION -------------------
+    #------------------------------------------------------------------------#
+    #                           Custom EDA                                   #
+    #------------------------------------------------------------------------#
+    if page_selection == "custom eda":
+        pass
+
+
+    #------------------------------------------------------------------------#
+    #                        Slides                               #
+    #------------------------------------------------------------------------#
+
+
+    #------------------------------------------------------------------------#
+    #                        Solution Overview                               #
+    #------------------------------------------------------------------------#
     if page_selection == "Solution Overview":
         st.title("Solution Overview")
         st.write("Describe your winning approach on this page")
+    
+    #------------------------------------------------------------------------#
+    #                        Slides                                          #
+    #------------------------------------------------------------------------#
+    
 
     # You may want to add more sections here for aspects such as an EDA,
+    
+
     # or to provide your business pitch.
 
 
