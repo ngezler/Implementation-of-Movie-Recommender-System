@@ -43,13 +43,14 @@ from recommenders.collaborative_based import collab_model
 from recommenders.content_based import content_model
 
 
+
 def st_display_sweetviz(report_html,width=1000,height=500):
 	report_file = codecs.open(report_html,'r')
 	page = report_file.read()
 	components.html(page,width=width,height=height,scrolling=True)
 
 # Data Loading
-title_list = load_movie_titles('resources/data/movies.csv')
+title_list = load_movie_titles('../unsupervised_data/unsupervised_movie_data/movies.csv')
 
 # App declaration
 def main():
@@ -150,8 +151,12 @@ def main():
     #                           Custom EDA                                   #
     #------------------------------------------------------------------------#
     if page_selection == "custom eda":
+        # Merging the train and movies data on the movieId column
         pass
 
+    #------------------------------------------------------------------------#
+    #                           Best                                         #
+    #------------------------------------------------------------------------#
 
     #------------------------------------------------------------------------#
     #                        Slides                               #
@@ -178,3 +183,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+    #'sha1:f3da046ef1cc:59a9e49b00196019c48620ad538e7a4c40548e37' ser
