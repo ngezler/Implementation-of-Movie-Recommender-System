@@ -151,6 +151,32 @@ def main():
     #                           Custom EDA                                   #
     #------------------------------------------------------------------------#
     if page_selection == "custom eda":
+        #Ratings by year
+        if st.checkbox("Ratings by year"):
+            st.image("resources/imgs/ratings_by_year.PNG", format='PNG')
+            #components.html()
+
+        #Movies Realese before and after 1995
+        if st.checkbox("Movies Realese before and after 1995"):
+            st.image("resources/imgs/Movie_release_over_T.PNG", format='PNG')
+            #components.html()
+        
+        #Distributins of user ratings for movies in the past 25 years
+        if st.checkbox("Distributins of user ratings for movies in the past 25 years"):
+            st.image("resources/imgs/dst.PNG", format='PNG')
+            st.image("resources/imgs/dst1.PNG", format='PNG')
+            st.image("resources/imgs/dst2.PNG", format='PNG')
+            #components.html()
+
+        #Ratings distributions across movie genres
+        if st.checkbox("Ratings distributions across movie genres"):
+            st.image("resources/imgs/ratings_by_year.PNG", format='PNG')
+            #components.html()
+        
+        #Decade movies were released
+        if st.checkbox("Decade movies were released"):
+            st.image("resources/imgs/ratings_by_year.PNG", format='PNG')
+            #components.html()
         # Merging the train and movies data on the movieId column
         pass
 
