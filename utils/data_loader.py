@@ -28,3 +28,34 @@ def load_movie_titles(path_to_movies):
     df = df.dropna()
     movie_list = df['title'].to_list()
     return movie_list
+
+#############################################
+#               PAGES PATH                  #
+#############################################
+PAGES_PATH = 'utils/'
+
+
+
+#############################################
+#               Slides Link                 #
+#############################################
+SLIDES_LINK = ''
+
+
+#############################################
+#               IMAGES PATH                 #
+#############################################
+IMAGES_PATH = "resources/imgs/"
+
+########################################
+#           PAGES FUNCTIONS            #    
+########################################
+def read_file(markdown_file, PAGES_PATH=PAGES_PATH):
+    return Path(PAGES_PATH+markdown_file).read_text()
+
+def local_css(file_name):
+    with open(PAGES_PATH+file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    
+def remote_css(url):
+    st.markdown(f'<link href="{url}" rel="stylesheet">', unsafe_allow_html=True)
