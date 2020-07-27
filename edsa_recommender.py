@@ -58,7 +58,7 @@ def load_css(file_name):
     with open(file_name) as f:
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
-#load_css("./utils/css/plugins.css")
+load_css("styles.css")
 #load_css("./utils/css/style.css")
 
 #=================================================================================
@@ -136,8 +136,7 @@ def main():
     #                           pandas profiling                             #
     #------------------------------------------------------------------------#
     if page_selection == "pandas profiling":
-        st.title("pandas profiling")
-        st.write("Pandas profiling provides analysis like type, unique values, missing values, quantile statistics, mean, mode, median, standard deviation, sum, skewness, frequent values, histograms, correlation between variables, count, heatmap visualization, etc. Let’s start how to use pandas profiling to boost EDA in a very short time and with just a single line code.")
+        st.markdown(eda_header,unsafe_allow_html=True)
         ds = st.radio("choose the data sorce", ("upload data", "use internal data"))
         if ds == "upload data":
             data_file = st.file_uploader("Upload CSV",type=['csv'])
@@ -154,8 +153,7 @@ def main():
     #                           Sweetviz report                              #
     #------------------------------------------------------------------------#
     if page_selection == "sweetviz":
-        st.title("sweetviz")
-        st.write("Sweetviz is an open source Python library that generates beautiful, high-density visualizations to kickstart EDA (Exploratory Data Analysis) with a single line of code. ... The system is built around quickly visualizing target values and comparing datasets.")
+        st.markdown(sweet,unsafe_allow_html=True)
         ds = st.radio("choose the data sorce", ("upload data", "use internal data"))
         if ds == "upload data":
             data_file = st.file_uploader("Upload CSV",type=['csv'])
@@ -223,9 +221,7 @@ def main():
     #------------------------------------------------------------------------#
     #                        Slides                               #
     #------------------------------------------------------------------------#
-    if page_selection == "Solution Overview":
-        st.markdown(html_temp,unsafe_allow_html=True)
-        st.markdown(html_overview,unsafe_allow_html=True)
+    
         
         #load_css('utils/icon.css')
 
@@ -234,8 +230,8 @@ def main():
     #                        Solution Overview                               #
     #------------------------------------------------------------------------#
     if page_selection == "Solution Overview":
-        st.title("Solution Overview")
-        st.write("Describe your winning approach on this page")
+        st.markdown(html_temp,unsafe_allow_html=True)
+        st.markdown(html_overview,unsafe_allow_html=True)
     
     #------------------------------------------------------------------------#
     #                        team                                            #

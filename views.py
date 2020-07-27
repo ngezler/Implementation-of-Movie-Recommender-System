@@ -48,6 +48,7 @@ slide = """<div class="responsive-wrap">
 eda_header = """
             <div style="background-color:#373645;padding:10px;">
             <h2 style="color:white;text-align:center;"><b>Exploratory Data Analysis</b></h2>
+            <a style="color:white;text-align:center;">Pandas profiling provides analysis like type, unique values, missing values, quantile statistics, mean, mode, median, standard deviation, sum, skewness, frequent values, histograms, correlation between variables, count, heatmap visualization, etc. Let’s start how to use pandas profiling to boost EDA in a very short time and with just a single line code.</a>
             </div>
 
             """
@@ -62,7 +63,8 @@ rec_header = """
 sweet = """
             <div style="background-color:#373645;padding:10px;">
             <h2 style="color:white;text-align:center;"><b>SWEETVIZ</b></h2>
-            <a style="color:white;text-align:center;"><SWEETVIZLIBRARY DISTRIBUTION</a2>
+            <a style="color:white;text-align:center;">Sweetviz is an open source Python library that generates beautiful, high-density visualizations to kickstart EDA (Exploratory Data Analysis) with a single line of code. ... The system is built around quickly visualizing target values and comparing datasets.)
+</a2>
             </div>
 
             """
