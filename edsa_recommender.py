@@ -191,7 +191,7 @@ def main():
         if st.checkbox("Distributins of user ratings for movies in the past 25 years"):
             st.image("resources/imgs/dst.PNG", format='PNG')
             st.image("resources/imgs/dst1.PNG", format='PNG')
-            st.image("resources/imgs/dst2.PNG", format='PNG')
+            st.image("resources/imgs/dst2.png", format='PNG')
             st.write("For the entire 25 year period, a rating of 4.0 is the most abundant rating given by users to movies,\
               followed by a rating of 3.0. Ratings of 5.0, 3.5 and 4.5 are next most numerous ratings users give to movies.\
               When the the 25 years are divided into 5, 5 year periods, the first 5 year period between 1995 and 1999,\
@@ -202,13 +202,13 @@ def main():
 
         #Ratings distributions across movie genres
         if st.checkbox("Ratings distributions across movie genres"):
-            st.image("resources/imgs/ratings_by_year.PNG", format='PNG')
+            st.image("resources/imgs/ratings_by_year.png", format='PNG')
             st.write("Movies with between 1 to 4 genres have the most number of ratings for the 25 years, with an average rating for these of roughly bewteen 3.5 to 3.6. Movies with 2 and 3 genres movies get the lions share of the ratings.")
             #components.html()
         
         #Decade movies were released
         if st.checkbox("Decade movies were released"):
-            st.image("resources/imgs/dc.PNG", format='PNG')
+            st.image("resources/imgs/dc.png", format='PNG')
             st.write("This is an interesting insight in the data with potentially huge implications, that will be eloborated upon later, in the conclusion when recommendations are put forward. For now however what emerges is the following; movies from before the 1970s have little to no ratings associated with them. Movies released from 1980s have the most ratings. The average rating for movies released for each decade from 1910 onwards is between 3.5 and 4.0., with that average for movies released in later decades carries more weight, since they have more ratings. With movies released in earlier decades having a lower average, perhaps to do with the quality of the movies.")
             #components.html()
         # Merging the train and movies data on the movieId column
