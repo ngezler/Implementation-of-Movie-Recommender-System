@@ -39,16 +39,16 @@ html_overview = """
 
 
 #========================================================================
-slide = """<div class="responsive-wrap">
+slides = """<div  style:"margin: 0 auto";>
     <!-- this is the embed code provided by Google -->
-    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQoW4r8Dubcay3w5U5yccaHYoT32n1O3tQ-ymUPptBW9vxvptbbHd3xLB45w8bygJ6Yk08QCL0ca9KS/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>    <!-- Google embed ends -->
+    <iframe src="https://docs.google.com/presentation/d/1WoOiIbAci2OhmyweSUODNb0IV09fGs2BJduMWuD9jPw/edit?usp=sharing" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>    <!-- Google embed ends -->
     </div>"""
 
 #===================================================================================
 eda_header = """
             <div style="background-color:#373645;padding:10px;">
             <h2 style="color:white;text-align:center;"><b>Exploratory Data Analysis</b></h2>
-            <a style="color:white;text-align:center;">Pandas profiling provides analysis like type, unique values, missing values, quantile statistics, mean, mode, median, standard deviation, sum, skewness, frequent values, histograms, correlation between variables, count, heatmap visualization, etc. Let’s start how to use pandas profiling to boost EDA in a very short time and with just a single line code.</a>
+            <a style="color:white;text-align:center;"> exploratory data analysis (EDA) is an approach we took analyzing data sets to summarize their main characteristics,in this tab you will find a few visuals, for more detailed analysis you can view our notebook on kaggle.</a>
             </div>
 
             """
@@ -72,8 +72,15 @@ sweet = """
 prof = """
             <div style="background-color:#373645;padding:10px;">
             <h2 style="color:white;text-align:center;"><b>Pandas Profiling</b></h2>
+            <a style="color:white;text-align:center;">Pandas profiling provides analysis like type, unique values, missing values, quantile statistics, mean, mode, median, standard deviation, sum, skewness, frequent values, histograms, correlation between variables, count, heatmap visualization, etc. Let’s start how to use pandas profiling to boost EDA in a very short time and with just a single line code.</a>
+
             </div>
 
             """
 #===================================================================================
+from pathlib import Path
+def read_file(markdown_file, folder):
+    return Path(folder+markdown_file).read_text()
+
+home = read_file("index.html", "./utils/")
 #===================================================================================

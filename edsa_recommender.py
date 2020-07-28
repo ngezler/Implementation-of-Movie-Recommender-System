@@ -38,13 +38,14 @@ import codecs
 from pandas_profiling import ProfileReport 
 
 # Custom Libraries
-from utils.data_loader import *
+from utils.data_loader import (load_movie_titles, read_file,\
+                                local_css, remote_css)
 from recommenders.collaborative_based import collab_model
 from recommenders.content_based import content_model
 from views import (html_temp, eda_header, rec_header, sweet, prof,\
-                    html_overview)
+                    html_overview, slides, home)
 
-#================================================================================
+#===============================display a sweetviz report==================================
 def st_display_sweetviz(report_html,width=1000,height=500):
 	report_file = codecs.open(report_html,'r')
 	page = report_file.read()
@@ -53,19 +54,18 @@ def st_display_sweetviz(report_html,width=1000,height=500):
 # Data Loading
 title_list = load_movie_titles('../unsupervised_data/unsupervised_movie_data/movies.csv')
 
-#================================================================================
+#====================================load_css============================================
 def load_css(file_name):
     with open(file_name) as f:
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
-load_css("styles.css")
-#load_css("./utils/css/style.css")
+load_css("./utils/styles.css")
 
-#=================================================================================
+#===================================load_icons==============================================
 def load_icon(icon_name):
     st.markdown('<i class="material-icons">{}</i>'.format(icon_name), unsafe_allow_html=True)
 
-#=================================================================================
+#=================================images loader================================================
 # Images
 def load_images(file_name):
 	img = Image.open(file_name)
@@ -79,7 +79,7 @@ def main():
     
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System","pandas profiling", "sweetviz", "custom eda", "slides", "Solution Overview", "Team"]
+    page_options = ["Recommender System", "Pandas profiling", "Sweetviz", "EDA", "Solution Overview", "Slides"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -135,13 +135,13 @@ def main():
     #------------------------------------------------------------------------#
     #                           pandas profiling                             #
     #------------------------------------------------------------------------#
-    if page_selection == "pandas profiling":
-        st.markdown(eda_header,unsafe_allow_html=True)
-        ds = st.radio("choose the data sorce", ("upload data", "use internal data"))
-        if ds == "upload data":
-            data_file = st.file_uploader("Upload CSV",type=['csv'])
+    if page_selection == "Pandas profiling":
+        st.markdown(prof,unsafe_allow_html=True)
+        ds = st.radio("choose the data sorce", ("movies data", "ratings data"))
+        if ds == "movies data":
+            data_file = 'resources/data/movies.csv'
         else:
-            data_file = "resources/data/ratings.csv"
+            data_file = 'resources/data/ratings.csv'
         if data_file is not None:
             df = pd.read_csv(data_file)
             st.dataframe(df.head())
@@ -152,13 +152,13 @@ def main():
     #------------------------------------------------------------------------#
     #                           Sweetviz report                              #
     #------------------------------------------------------------------------#
-    if page_selection == "sweetviz":
+    if page_selection == "Sweetviz":
         st.markdown(sweet,unsafe_allow_html=True)
-        ds = st.radio("choose the data sorce", ("upload data", "use internal data"))
-        if ds == "upload data":
-            data_file = st.file_uploader("Upload CSV",type=['csv'])
+        ds = st.radio("choose the data sorce", ("movies data", "ratings data"))
+        if ds == "movies data":
+            data_file = 'resources/data/movies.csv'
         else:
-            data_file = "resources/data/ratings.csv"
+            data_file = 'resources/data/ratings.csv'
         if data_file is not None:
             df1 = pd.read_csv(data_file)
             st.dataframe(df1.head())
@@ -171,7 +171,7 @@ def main():
     #------------------------------------------------------------------------#
     #                           Custom EDA                                   #
     #------------------------------------------------------------------------#
-    if page_selection == "custom eda":
+    if page_selection == "EDA":
         #Ratings by year
         st.markdown(eda_header,unsafe_allow_html=True)
         
@@ -217,11 +217,14 @@ def main():
     #------------------------------------------------------------------------#
     #                           Home                                         #
     #------------------------------------------------------------------------#
-
+    #if page_selection == "Home":
+    #    st.markdown(home,unsafe_allow_html=True)
+    #
     #------------------------------------------------------------------------#
     #                        Slides                               #
     #------------------------------------------------------------------------#
-    
+    if page_selection == "Slides":
+        st.markdown(slides,unsafe_allow_html=True)
         
         #load_css('utils/icon.css')
 
@@ -236,11 +239,11 @@ def main():
     #------------------------------------------------------------------------#
     #                        team                                            #
     #------------------------------------------------------------------------#
-    if page_selection == "Team":
-        pass
-        #st.markdown(team,unsafe_allow_html=True)
+    #if page_selection == "Team":
+     #   pass
+      #  #st.markdown(team,unsafe_allow_html=True)
         #load_css('utils/team.css')
-
+    
     # You may want to add more sections here for aspects such as an EDA,
     
 

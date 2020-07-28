@@ -8,6 +8,7 @@
 # Data handling dependencies
 import pandas as pd
 import numpy as np
+import streamlit as st
 
 def load_movie_titles(path_to_movies):
     """Load movie titles from database records.
@@ -43,9 +44,9 @@ SLIDES_LINK = ''
 
 
 #############################################
-#               IMAGES PATH                 #
+#               CSS PATH                 #
 #############################################
-IMAGES_PATH = "resources/imgs/"
+CSS_PATH = "./utils/css/"
 
 ########################################
 #           PAGES FUNCTIONS            #    
@@ -54,7 +55,7 @@ def read_file(markdown_file, PAGES_PATH=PAGES_PATH):
     return Path(PAGES_PATH+markdown_file).read_text()
 
 def local_css(file_name):
-    with open(PAGES_PATH+file_name) as f:
+    with open(CSS_PATH+file_name,  encoding="utf-8") as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     
 def remote_css(url):
