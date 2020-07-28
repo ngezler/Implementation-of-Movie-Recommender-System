@@ -252,5 +252,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    #'sha1:f3da046ef1cc:59a9e49b00196019c48620ad538e7a4c40548e37' ser
