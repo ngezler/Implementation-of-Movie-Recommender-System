@@ -3,9 +3,9 @@
 # %% [markdown]
 # <img src="https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F2205222%2Fbca114f2e4f6b9b46f2cc76527d7401e%2FImage_header.png?generation=1593773828621598&amp;alt=media" alt="">
 # 
-# 
+# <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQJbAdF6rYFoLf4Msxb9SeGHJgJ8zijnmJ8eRngLxrlieDLeFBcc3NS6epzPj6pVSEFvjW2yxJb8ODk/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 # # Movie Recommendation Challenge
-# 
+# https://docs.google.com/presentation/d/e/2PACX-1vQJbAdF6rYFoLf4Msxb9SeGHJgJ8zijnmJ8eRngLxrlieDLeFBcc3NS6epzPj6pVSEFvjW2yxJb8ODk/pub?start=true&loop=true&delayms=3000
 # ###  1. [Overview](#Overview) 
 # - #### [Data](#The-Data)
 # 
